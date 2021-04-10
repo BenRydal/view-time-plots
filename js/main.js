@@ -3,10 +3,10 @@ const tableHeaders = ['Method', 'TStartVid', 'TEndVid', 'TStartAnalyst', 'TEndAn
 // const example_1 = ['data/example-1/', 'units.csv', 'Youtube', {
 //     videoId: 'Iu0rxb-xkMk'
 // }];
-const example_1 = ['data/example-1/units.csv']; // temp without video
-const example_2 = ['data/example-2/units.csv']; // temp without video
-const example_3 = ['data/example-3/units.csv']; // temp without video
-const example_4 = ['data/example-4/units.csv']; // temp without video
+const example_1 = ['data/example-1/units.csv', 'HjBvwRSG_jY']; // params are file path and YouTube id
+const example_2 = ['data/example-2/units.csv', 'agUUzmtjsR0']; // params are file path and YouTube id
+const example_3 = ['data/example-3/units.csv', 'S8IJKA7t9cE']; // params are file path and YouTube id
+const example_4 = ['data/example-4/units.csv', 'bOT48kMRL1g']; // params are file path and YouTube id
 
 // Orange, dark purple, dark green, light purple, light green 
 // dark shade is fast, light shade is slow
@@ -28,32 +28,38 @@ class Unit {
     }
 }
 
-// scale x/y positions used for drawing and scaling rects
-let xPosVidScale_1 = 50;
-let xPosVidScale_2 = 250;
-let yPosAnalystScale_1 = 50;
-let yPosAnalystScale_2 = 1000;
-let analystScaleLength = yPosAnalystScale_2 - yPosAnalystScale_1;
+// GUI
+let genSpacing = 50;
 
-function keyPressed() {
-    view = !view;
-}
+// TIME PLOT SCALES
+let xPosVidScale_1;
+let xPosVidScale_2;
+let yPosAnalystScale_1;
+let yPosAnalystScale_2;
+let analystScaleLength;
 
-function preload() {
-    loadExample(example_1);
-}
+// VIDEO
+let movie; // global holder for movie element--youtube, Kaltura and File Player coordinate around this
+let videoPlayer; // instantiated in setupMovie method, used to manipulate video (play, pause, seek, etc.)
+let videoIsPlaying = false; // boolean for video playing or stopped
+let videoIsShowing = false; // boolean for showing/hiding video
+let xPosVideo, yPosVideo, videoWidth, videoHeight;
 
 function setup() {
     canvas = createCanvas(window.innerWidth, window.innerHeight, P2D);
+    setScales();
+    loadExample(example_1);
     rectMode(CORNERS);
 }
 
 function draw() {
     // background, scales
+    strokeWeight(1);
     background(255);
     stroke(0);
-    line(xPosVidScale_1, yPosAnalystScale_1 - 20, xPosVidScale_2, yPosAnalystScale_1 - 20); // Video scale  
+    line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_1); // Video scale  
     line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2); // Analyst scale
+
 
     noStroke();
     // Loop through table and draw rects
@@ -63,6 +69,14 @@ function draw() {
         if (view) drawNormalRects(u);
         else drawScaledRects(u, i);
     }
+
+    stroke(0);
+    strokeWeight(3);
+    // Draw video cursor line on Plot
+    // Get mapped value in seconds to greatest video size, then map it to pixels on analyst timeline
+    // let yPosSeconds = map(videoPlayer.getCurrentTime(), 0, videoPlayer.getDuration(), 0, analystLength);
+    let yPosPixels = map(videoPlayer.getCurrentTime(), 0, analystLength, yPosAnalystScale_1, yPosAnalystScale_2);
+    line(xPosVidScale_1, yPosPixels, xPosVidScale_2, yPosPixels);
 }
 
 function setRectColor(method) {

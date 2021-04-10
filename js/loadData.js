@@ -17,6 +17,7 @@ function loadExampleDataSet() {
 }
 
 function loadExample(params) {
+    processYTVideo(params[1])
     loadTable(params[0], 'csv', 'header', table => {
         dataValues = []; // clear exisiting data after table loads
         let rows = table.getRows();
