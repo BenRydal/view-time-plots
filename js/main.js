@@ -1,4 +1,3 @@
-const tableHeaders = ['Method', 'TStartVid', 'TEndVid', 'TStartAnalyst', 'TEndAnalyst'];
 // SAMPLE DATA formatted as: { directory, data file, video platform, video params (see Video Player Interface) }
 // const example_1 = ['data/example-1/', 'units.csv', 'Youtube', {
 //     videoId: 'Iu0rxb-xkMk'
@@ -7,10 +6,9 @@ const example_1 = ['data/example-1/units.csv', 'HjBvwRSG_jY']; // params are fil
 const example_2 = ['data/example-2/units.csv', 'agUUzmtjsR0']; // params are file path and YouTube id
 const example_3 = ['data/example-3/units.csv', 'S8IJKA7t9cE']; // params are file path and YouTube id
 const example_4 = ['data/example-4/units.csv', 'bOT48kMRL1g']; // params are file path and YouTube id
+const example_5 = ['data/example-5/units.csv', '9Qa1T4pwUYo']; // params are file path and YouTube id
 
-// Orange, dark purple, dark green, light purple, light green 
-// dark shade is fast, light shade is slow
-const methodColors = ['#e66101', '#7b3294', '#008837', '#9e9ac8', '#74c476'];
+
 const playMethods = [0, 1, 2, 3, 4]; // 0 = normal, 1 = ff, 2 == fb, 3 = sf, 4 = sb
 const vidLength = 119; // video length in seconds
 const analystLength = 3300; // max value in seconds across all analyst videos
@@ -48,7 +46,7 @@ let xPosVideo, yPosVideo, videoWidth, videoHeight;
 function setup() {
     canvas = createCanvas(window.innerWidth, window.innerHeight, P2D);
     setScales();
-    loadExample(example_1);
+    loadExample(example_5);
     rectMode(CORNERS);
 }
 
@@ -81,10 +79,17 @@ function draw() {
 
 function setRectColor(method) {
     // Loop through playMethods and return appropriate color; return white if nothing
-    for (let i = 0; i < playMethods.length; i++) {
-        if (i === method) return methodColors[i];
-    }
-    return 255;
+    // for (let i = 0; i < playMethods.length; i++) {
+    //     if (i === method) return methodColors[i];
+    // }
+    // return 255;
+    // Orange, dark purple, dark green, light purple, light green 
+    // dark shade is fast, light shade is slow
+    const methodColors = ['#e66101', '#7b3294', '#008837', '#9e9ac8', '#74c476'];
+    if (method === "play") return '#e66101';
+    else if (method === "still") return '#7b3294';
+    else if (method === "frev") return '#008837';
+    else return 0;
 }
 
 function drawNormalRects(unit) {
