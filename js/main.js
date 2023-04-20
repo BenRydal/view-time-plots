@@ -8,13 +8,12 @@ const example_3 = ['data/example-3/units.csv', 'S8IJKA7t9cE']; // params are fil
 const example_4 = ['data/example-4/units.csv', 'bOT48kMRL1g']; // params are file path and YouTube id
 const example_5 = ['data/example-5/units.csv', '9Qa1T4pwUYo']; // params are file path and YouTube id
 
-
-const playMethods = [0, 1, 2, 3, 4]; // 0 = normal, 1 = ff, 2 == fb, 3 = sf, 4 = sb
+// TODO: remove?
 const vidLength = 119; // video length in seconds
 const analystLength = 3300; // max value in seconds across all analyst videos
 let dataValues = [] // list to hold all unit objects
 let view = true; // normal or rescaled view
-const baseRectSize = 1; // base pixel size of width/height of rects
+const baseRectSize = .5; // base pixel size of width/height of rects
 
 class Unit {
     constructor(playMethod, tStartVid, tEndVid, tStartAnalyst, tEndAnalyst) {
@@ -26,8 +25,6 @@ class Unit {
     }
 }
 
-// GUI
-let genSpacing = 50;
 
 // TIME PLOT SCALES
 let xPosVidScale_1;
@@ -35,6 +32,7 @@ let xPosVidScale_2;
 let yPosAnalystScale_1;
 let yPosAnalystScale_2;
 let analystScaleLength;
+let keyXPos, keyYPos;
 
 // VIDEO
 let movie; // global holder for movie element--youtube, Kaltura and File Player coordinate around this
@@ -75,21 +73,35 @@ function draw() {
     // let yPosSeconds = map(videoPlayer.getCurrentTime(), 0, videoPlayer.getDuration(), 0, analystLength);
     let yPosPixels = map(videoPlayer.getCurrentTime(), 0, analystLength, yPosAnalystScale_1, yPosAnalystScale_2);
     line(xPosVidScale_1, yPosPixels, xPosVidScale_2, yPosPixels);
+
+    drawKeys();
 }
 
 function setRectColor(method) {
-    // Loop through playMethods and return appropriate color; return white if nothing
-    // for (let i = 0; i < playMethods.length; i++) {
-    //     if (i === method) return methodColors[i];
-    // }
-    // return 255;
-    // Orange, dark purple, dark green, light purple, light green 
-    // dark shade is fast, light shade is slow
-    const methodColors = ['#e66101', '#7b3294', '#008837', '#9e9ac8', '#74c476'];
-    if (method === "play") return '#e66101';
-    else if (method === "still") return '#7b3294';
-    else if (method === "frev") return '#008837';
+    if (method === "jrev") return '#756bb1'; // dark purple
+    else if (method === "frev") return '#bcbddc'; // mid purple
+    else if (method === "srev") return '#efedf5'; // light purple
+    else if (method === "still") return '#000000'; // black
+    else if (method === "sfwd") return '#feedde'; // light light orange
+    else if (method === "play") return '#fdbe85'; // light orange
+    else if (method === "ffwd") return '#fd8d3c'; // mid orange
+    else if (method === "jfwd") return '#d94701'; // dark orange
     else return 0;
+}
+
+function drawKeys() {
+    textSize(20);
+    const methodColors = ['#756bb1', '#bcbddc', '#efedf5', '#000000', '#feedde', '#fdbe85', '#fd8d3c', '#d94701'];
+    const methods = ["jrev", "frev", "srev", "still", "sfwd", "play", "ffwd", "jfwd"];
+    let xPosUpdate = 0;
+    for (let i = 0; i < methods.length; i++) {
+        noStroke();
+        fill(0);
+        text(methods[i], keyXPos + xPosUpdate, keyYPos);
+        fill(methodColors[i]);
+        rect(keyXPos + xPosUpdate, 10 + keyYPos, xPosUpdate + keyXPos + 50, 10 + keyYPos + 50);
+        xPosUpdate += 2 * textWidth(methods[i]);
+    }
 }
 
 function drawNormalRects(unit) {
@@ -98,8 +110,8 @@ function drawNormalRects(unit) {
     let y1 = Math.floor(map(unit.tStartAnalyst, 0, analystLength, yPosAnalystScale_1, yPosAnalystScale_2));
     let y2 = Math.floor(map(unit.tEndAnalyst, 0, analystLength, yPosAnalystScale_1, yPosAnalystScale_2)); // rect height
     // base rect width/height is at least 1 pixel
-    if (x2 - x1 == 0) x2 = x1 + baseRectSize;
-    if (y2 - y1 == 0) y2 = y1 + baseRectSize;
+    if (x2 - x1 == 0) x2 = x1 - baseRectSize;
+    if (y2 - y1 == 0) y2 = y1 - baseRectSize;
     rect(x1, y1, x2, y2); // draw scaled rect
 }
 
