@@ -2,18 +2,19 @@
 // const example_1 = ['data/example-1/', 'units.csv', 'Youtube', {
 //     videoId: 'Iu0rxb-xkMk'
 // }];
-const example_1 = ['data/example-1/units.csv', 'HjBvwRSG_jY']; // params are file path and YouTube id
-const example_2 = ['data/example-2/units.csv', 'agUUzmtjsR0']; // params are file path and YouTube id
-const example_3 = ['data/example-3/units.csv', 'S8IJKA7t9cE']; // params are file path and YouTube id
-const example_4 = ['data/example-4/units.csv', 'bOT48kMRL1g']; // params are file path and YouTube id
-const example_5 = ['data/example-5/units.csv', '9Qa1T4pwUYo']; // params are file path and YouTube id
+const example_1 = ["data/example-1/units.csv", "HjBvwRSG_jY"]; // params are file path and YouTube id
+const example_2 = ["data/example-2/units.csv", "agUUzmtjsR0"]; // params are file path and YouTube id
+const example_3 = ["data/example-3/units.csv", "S8IJKA7t9cE"]; // params are file path and YouTube id
+const example_4 = ["data/example-4/units.csv", "bOT48kMRL1g"]; // params are file path and YouTube id
+const example_5 = ["data/example-5/units.csv", "9Qa1T4pwUYo"]; // params are file path and YouTube id
+const example_6 = ["data/example-6/units.csv", "vhthoOHXMSI"]; // params are file path and YouTube id
 
 // TODO: remove?
 const vidLength = 119; // video length in seconds
 const analystLength = 3300; // max value in seconds across all analyst videos
-let dataValues = [] // list to hold all unit objects
+let dataValues = []; // list to hold all unit objects
 let view = true; // normal or rescaled view
-const baseRectSize = .5; // base pixel size of width/height of rects
+const baseRectSize = 0.5; // base pixel size of width/height of rects
 
 class Unit {
     constructor(playMethod, tStartVid, tEndVid, tStartAnalyst, tEndAnalyst) {
@@ -24,7 +25,6 @@ class Unit {
         this.tEndAnalyst = tEndAnalyst;
     }
 }
-
 
 // TIME PLOT SCALES
 let xPosVidScale_1;
@@ -53,9 +53,8 @@ function draw() {
     strokeWeight(1);
     background(255);
     stroke(0);
-    line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_1); // Video scale  
+    line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_1); // Video scale
     line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2); // Analyst scale
-
 
     noStroke();
     // Loop through table and draw rects
@@ -78,20 +77,20 @@ function draw() {
 }
 
 function setRectColor(method) {
-    if (method === "jrev") return '#756bb1'; // dark purple
-    else if (method === "frev") return '#bcbddc'; // mid purple
-    else if (method === "srev") return '#efedf5'; // light purple
-    else if (method === "still") return '#000000'; // black
-    else if (method === "sfwd") return '#feedde'; // light light orange
-    else if (method === "play") return '#fdbe85'; // light orange
-    else if (method === "ffwd") return '#fd8d3c'; // mid orange
-    else if (method === "jfwd") return '#d94701'; // dark orange
+    if (method === "jrev") return "#756bb1"; // dark purple
+    else if (method === "frev") return "#bcbddc"; // mid purple
+    else if (method === "srev") return "#efedf5"; // light purple
+    else if (method === "still") return "#000000"; // black
+    else if (method === "sfwd") return "#feedde"; // light light orange
+    else if (method === "play") return "#fdbe85"; // light orange
+    else if (method === "ffwd") return "#fd8d3c"; // mid orange
+    else if (method === "jfwd") return "#d94701"; // dark orange
     else return 0;
 }
 
 function drawKeys() {
     textSize(20);
-    const methodColors = ['#756bb1', '#bcbddc', '#efedf5', '#000000', '#feedde', '#fdbe85', '#fd8d3c', '#d94701'];
+    const methodColors = ["#756bb1", "#bcbddc", "#efedf5", "#000000", "#feedde", "#fdbe85", "#fd8d3c", "#d94701"];
     const methods = ["jrev", "frev", "srev", "still", "sfwd", "play", "ffwd", "jfwd"];
     let xPosUpdate = 0;
     for (let i = 0; i < methods.length; i++) {
@@ -120,7 +119,7 @@ function drawScaledRects(unit, rowNum) {
     let rectWidth = 5;
     let x1 = floor(map(unit.tStartVid, 0, vidLength, xPosVidScale_1, xPosVidScale_2));
     let x2 = floor(map(unit.tEndVid, 0, vidLength, xPosVidScale_1, xPosVidScale_2)); // rect width
-    let y1 = yPosAnalystScale_1 + (ySpacing * rowNum);
+    let y1 = yPosAnalystScale_1 + ySpacing * rowNum;
     let y2 = ySpacing * rowNum + rectWidth + yPosAnalystScale_1;
     rect(x1, y1, x2, y2); // draw scaled rect
 }

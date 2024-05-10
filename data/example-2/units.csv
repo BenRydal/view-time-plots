@@ -1,39 +1,54 @@
-Units,Method,TStartVid,TEndVid,TStartAnalyst,TEndAnalyst
-Unit 1,0,0,119,136,255
-Unit 2,2,119,92,533,535
-Unit 3,2,92,84,536,537
-Unit 4,1,84,103,537,539
-Unit 5,2,103,73,539,542
-Unit 6,1,74,60,543,544
-Unit 7,1,60,67,544,545
-Unit 8,2,67,66,545,546
-Unit 9,1,66,70,546,547
-Unit 10,2,70,67,547,548
-Unit 11,2,67,66,548,549
-Unit 12,1,66,119,549,556
-Unit 13,2,119,66,562,564
-Unit 14,2,66,63,571,572
-Unit 15,1,63,66,572,573
-Unit 16,2,66,65,573,583
-Unit 17,1,65,67,574,575
-Unit 18,2,67,66,575,576
-Unit 19,1,66,67,576,577
-Unit 20,2,67,66,577,578
-Unit 21,0,66,119,590,591
-Unit 22,0,0,11,1802,1813
-Unit 23,0,11,23,1828,1840
-Unit 24,0,23,31,1957,1965
-Unit 25,0,31,43,2029,2042
-Unit 26,0,43,56,2096,2107
-Unit 27,0,56,71,2139,2154
-Unit 28,2,71,66,2166,2168
-Unit 29,1,66,82,2169,2173
-Unit 30,2,82,80,2173,2174
-Unit 31,1,80,84,2174,2176
-Unit 32,2,84,78,2176,2177
-Unit 33,1,78,83,2178,2180
-Unit 34,2,83,0,2334,2335
-Unit 35,0,0,119,2408,2527
-Unit 36,2,119,63,2529,2536
-Unit 37,0,63,68,2546,2551
-Unit 38,0,50,79,2556,2585
+Analysts,Units,Method,TStartVid,TEndVid,TStartAnalyst,TEndAnalyst,OldTStartVid,OldTEndVid,OldTStartAnalyst,OldTEndAnalyst
+Rogers Hall & Ben Shapiro,Unit 1,STILL,0,0,0,136,0:00:00,0:00:00,0:00:00,0:02:16
+Rogers Hall & Ben Shapiro,Unit 2,PLAY,0,119,136,256,0:00:00,0:01:59,0:02:16,0:04:16
+Rogers Hall & Ben Shapiro,Unit 3,STILL,119,119,256,533,0:01:59,0:01:59,0:04:16,0:08:53
+Rogers Hall & Ben Shapiro,Unit 4,FREV,119,84,533,536,0:01:59,0:01:24,0:08:53,0:08:56
+Rogers Hall & Ben Shapiro,Unit 5,FFW,84,103,536,539,0:01:24,0:01:43,0:08:56,0:08:59
+Rogers Hall & Ben Shapiro,Unit 6,FREV,103,66,539,543,0:01:43,0:01:06,0:08:59,0:09:03
+Rogers Hall & Ben Shapiro,Unit 7,FFW,66,70,543,544,0:01:06,0:01:10,0:09:03,0:09:04
+Rogers Hall & Ben Shapiro,Unit 8,FREV,70,66,544,547,0:01:10,0:01:06,0:09:04,0:09:07
+Rogers Hall & Ben Shapiro,Unit 9,FFW,66,119,547,557,0:01:06,0:01:59,0:09:07,0:09:17
+Rogers Hall & Ben Shapiro,Unit 10,STILL,119,119,557,562,0:01:59,0:01:59,0:09:17,0:09:22
+Rogers Hall & Ben Shapiro,Unit 11,FREV,119,66,562,564,0:01:59,0:01:06,0:09:22,0:09:24
+Rogers Hall & Ben Shapiro,Unit 12,STILL,66,66,564,571,0:01:06,0:01:06,0:09:24,0:09:31
+Rogers Hall & Ben Shapiro,Unit 13,FREV,66,63,571,572,0:01:06,0:01:03,0:09:31,0:09:32
+Rogers Hall & Ben Shapiro,Unit 14,FFW,63,65,572,573,0:01:03,0:01:05,0:09:32,0:09:33
+Rogers Hall & Ben Shapiro,Unit 15,STILL,65,65,573,575,0:01:05,0:01:05,0:09:33,0:09:35
+Rogers Hall & Ben Shapiro,Unit 16,FFW,65,67,575,576,0:01:05,0:01:07,0:09:35,0:09:36
+Rogers Hall & Ben Shapiro,Unit 17,FREV,67,66,576,578,0:01:07,0:01:06,0:09:36,0:09:38
+Rogers Hall & Ben Shapiro,Unit 18,STILL,67,67,578,580,0:01:07,0:01:07,0:09:38,0:09:40
+Rogers Hall & Ben Shapiro,Unit 19,FREV,67,66,580,581,0:01:07,0:01:06,0:09:40,0:09:41
+Rogers Hall & Ben Shapiro,Unit 20,STILL,66,66,581,590,0:01:06,0:01:06,0:09:41,0:09:50
+Rogers Hall & Ben Shapiro,Unit 21,FFW,66,119,590,590,0:01:06,0:01:59,0:09:50,0:09:50
+Rogers Hall & Ben Shapiro,Unit 22,STILL,119,119,590,1369,0:01:59,0:01:59,0:09:50,0:22:49
+Rogers Hall & Ben Shapiro,Unit 23,FREV,119,0,1789,1789,0:01:59,0:00:00,0:29:49,0:29:49
+Rogers Hall & Ben Shapiro,Unit 24,STILL,0,0,1789,1802,0:00:00,0:00:00,0:29:49,0:30:02
+Rogers Hall & Ben Shapiro,Unit 25,PLAY,0,11,1802,1814,0:00:00,0:00:11,0:30:02,0:30:14
+Rogers Hall & Ben Shapiro,Unit 26,STILL,11,11,1814,1828,0:00:11,0:00:11,0:30:14,0:30:28
+Rogers Hall & Ben Shapiro,Unit 27,PLAY,11,22,1828,1839,0:00:11,0:00:22,0:30:28,0:30:39
+Rogers Hall & Ben Shapiro,Unit 28,STILL,22,22,1839,1957,0:00:22,0:00:22,0:30:39,0:32:37
+Rogers Hall & Ben Shapiro,Unit 29,PLAY,22,31,1957,1965,0:00:22,0:00:31,0:32:37,0:32:45
+Rogers Hall & Ben Shapiro,Unit 30,STILL,31,31,1969,2029,0:00:31,0:00:31,0:32:49,0:33:49
+Rogers Hall & Ben Shapiro,Unit 31,PLAY,31,43,2029,2041,0:00:31,0:00:43,0:33:49,0:34:01
+Rogers Hall & Ben Shapiro,Unit 32,STILL,43,43,2041,2095,0:00:43,0:00:43,0:34:01,0:34:55
+Rogers Hall & Ben Shapiro,Unit 33,PLAY,43,56,2095,2108,0:00:43,0:00:56,0:34:55,0:35:08
+Rogers Hall & Ben Shapiro,Unit 34,STILL,56,56,2108,2139,0:00:56,0:00:56,0:35:08,0:35:39
+Rogers Hall & Ben Shapiro,Unit 35,PLAY,56,71,2139,2154,0:00:56,0:01:11,0:35:39,0:35:54
+Rogers Hall & Ben Shapiro,Unit 36,STILL,71,71,2154,2166,0:01:11,0:01:11,0:35:54,0:36:06
+Rogers Hall & Ben Shapiro,Unit 37,FREV,71,66,2166,2168,0:01:11,0:01:06,0:36:06,0:36:08
+Rogers Hall & Ben Shapiro,Unit 38,FFW,66,82,2168,2174,0:01:06,0:01:22,0:36:08,0:36:14
+Rogers Hall & Ben Shapiro,Unit 39,FREV,82,80,2174,2174,0:01:22,0:01:20,0:36:14,0:36:14
+Rogers Hall & Ben Shapiro,Unit 40,FFW,80,84,2174,2176,0:01:20,0:01:24,0:36:14,0:36:16
+Rogers Hall & Ben Shapiro,Unit 41,FREV,84,78,2176,2178,0:01:24,0:01:18,0:36:16,0:36:18
+Rogers Hall & Ben Shapiro,Unit 42,FFW,78,83,2178,2180,0:01:18,0:01:23,0:36:18,0:36:20
+Rogers Hall & Ben Shapiro,Unit 43,STILL,83,83,2180,2334,0:01:23,0:01:23,0:36:20,0:38:54
+Rogers Hall & Ben Shapiro,Unit 44,FREV,83,0,2334,2335,0:01:23,0:00:00,0:38:54,0:38:55
+Rogers Hall & Ben Shapiro,Unit 45,STILL,0,0,2335,2407,0:00:00,0:00:00,0:38:55,0:40:07
+Rogers Hall & Ben Shapiro,Unit 46,PLAY,0,119,2407,2527,0:00:00,0:01:59,0:40:07,0:42:07
+Rogers Hall & Ben Shapiro,Unit 47,STILL,119,119,2527,2529,0:01:59,0:01:59,0:42:07,0:42:09
+Rogers Hall & Ben Shapiro,Unit 48,FREV,119,63,2529,2537,0:01:59,0:01:03,0:42:09,0:42:17
+Rogers Hall & Ben Shapiro,Unit 49,STILL,63,63,2537,2547,0:01:03,0:01:03,0:42:17,0:42:27
+Rogers Hall & Ben Shapiro,Unit 50,PLAY,63,68,2547,2553,0:01:03,0:01:08,0:42:27,0:42:33
+Rogers Hall & Ben Shapiro,Unit 51,JREV,68,50,2553,2556,0:01:08,0:00:50,0:42:33,0:42:36
+Rogers Hall & Ben Shapiro,Unit 52,PLAY,50,79,2556,2586,0:00:50,0:01:19,0:42:36,0:43:06
+Rogers Hall & Ben Shapiro,Unit 53,STILL,79,79,2586,3293,0:01:19,0:01:19,0:43:06,0:54:53

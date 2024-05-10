@@ -16,13 +16,16 @@ function loadExampleDataSet() {
         case "Example 5":
             loadExample(example_5);
             break;
+        case "Example 6":
+            loadExample(example_6);
+            break;
     }
 }
 
 function loadExample(params) {
-    const tableHeaders = ['Method', 'TStartVid', 'TEndVid', 'TStartAnalyst', 'TEndAnalyst'];
+    const tableHeaders = ["Method", "TStartVid", "TEndVid", "TStartAnalyst", "TEndAnalyst"];
     processYTVideo(params[1]);
-    loadTable(params[0], 'csv', 'header', table => {
+    loadTable(params[0], "csv", "header", (table) => {
         dataValues = []; // clear exisiting data after table loads
         let rows = table.getRows();
         for (let r = 0; r < rows.length; r++) {
