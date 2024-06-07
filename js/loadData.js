@@ -31,11 +31,26 @@ function loadExample(params) {
         for (let r = 0; r < rows.length; r++) {
             let u = new Unit();
             u.playMethod = table.getString(r, tableHeaders[0]).toLowerCase();
-            u.tStartVid = table.getNum(r, tableHeaders[1]);
-            u.tEndVid = table.getNum(r, tableHeaders[2]);
-            u.tStartAnalyst = table.getNum(r, tableHeaders[3]);
-            u.tEndAnalyst = table.getNum(r, tableHeaders[4]);
+            u.tStartVid = this.timecodeToSeconds(table.getString(r, tableHeaders[1]));
+            u.tEndVid = this.timecodeToSeconds(table.getString(r, tableHeaders[2]));
+            u.tStartAnalyst = this.timecodeToSeconds(table.getString(r, tableHeaders[3]));
+            u.tEndAnalyst = this.timecodeToSeconds(table.getString(r, tableHeaders[4]));
             dataValues.push(u);
         }
     });
+}
+
+function timecodeToSeconds(timecode) {
+    // Split the timecode by ':' to extract hours, minutes, and seconds
+    const parts = timecode.split(":");
+
+    // Extract hours, minutes, and seconds from the split parts
+    const hours = parseInt(parts[0], 10);
+    const minutes = parseInt(parts[1], 10);
+    const seconds = parseInt(parts[2], 10);
+
+    // Calculate total seconds
+    const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+    return totalSeconds;
 }
