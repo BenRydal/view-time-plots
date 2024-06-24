@@ -6,11 +6,11 @@ function processYTVideo(id) {
         movie.remove();
     }
     movie = createDiv(); // create the div that will hold the video if other player
-    movie.id('moviePlayer');
+    movie.id("moviePlayer");
     // movie.hide();
-    setupMovie('moviePlayer', id); // set up the video player
-    let video = select('#moviePlayer').position(xPosVideo, yPosVideo); // position video
-    let iFrameID = document.getElementById('moviePlayer');
+    setupMovie("moviePlayer", id); // set up the video player
+    let video = select("#moviePlayer").position(xPosVideo, yPosVideo); // position video
+    let iFrameID = document.getElementById("moviePlayer");
     iFrameID.width = videoWidth;
     iFrameID.height = videoHeight;
 }
@@ -25,8 +25,8 @@ function setupMovie(movieDiv, id) {
             disablekb: 1, // disables keyboard controls on the video
         },
         events: {
-            'onReady': onPlayerReady,
-        }
+            onReady: onPlayerReady,
+        },
     });
 }
 
@@ -37,11 +37,22 @@ function onPlayerReady(event) {
     console.log("YT player ready: ");
 }
 
+function seekTo(time) {
+    videoPlayer.seekTo(time, true);
+}
+
+function play() {
+    videoPlayer.playVideo();
+}
+
+function pause() {
+    videoPlayer.pauseVideo();
+}
 
 // // Plays/pauses video and toggles videoIsPlaying
 // function playPauseMovie() {
 //     if (videoIsPlaying) {
-//         videoPlayer.pause(); 
+//         videoPlayer.pause();
 //         videoIsPlaying = false;
 //     } else {
 //         let mPos = map(mouseX, timelineStart, timelineEnd, currPixelTimeMin, currPixelTimeMax); // first map mouse to selected time values in GUI
@@ -49,7 +60,7 @@ function onPlayerReady(event) {
 //         let vPos = Math.floor(map(mPos, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())));
 //         print(vPos);
 //         videoPlayer.play();
-//         videoPlayer.seekTo(vPos);    
+//         videoPlayer.seekTo(vPos);
 //         videoIsPlaying = true;
 //     }
 // }

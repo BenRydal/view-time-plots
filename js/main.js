@@ -50,12 +50,7 @@ function setup() {
 
 function draw() {
     // background, scales
-    strokeWeight(1);
     background(255);
-    stroke(0);
-    line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_1); // Video scale
-    line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2); // Analyst scale
-
     noStroke();
     // Loop through table and draw rects
     for (let i = 0; i < dataValues.length; i++) {
@@ -65,15 +60,81 @@ function draw() {
         else drawScaledRects(u, i);
     }
 
+    drawVideoCursorLine();
+
+    drawKeys();
+
+    strokeWeight(1);
     stroke(0);
-    strokeWeight(3);
+    textSize(20);
+    line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_1); // Video scale/x-axis
+    //line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2); // Analyst scale/Y-axis
+
+    drawLineWithTicks(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2, analystLength, 300, 10); // Analyst scale/Y-axis
+
+    fill(0);
+    text("0", xPosVidScale_1 - 2 * textWidth("0"), 10); // Draw the text next to the tick mark
+    text("1:59", xPosVidScale_2, 10); // Draw the text next to the tick mark
+}
+
+function mousePressed() {
+    if (overRect(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_2)) {
+        const seekTime = map(mouseY, yPosAnalystScale_1, yPosAnalystScale_2, 0, analystLength);
+        seekTo(seekTime);
+        play();
+    }
+}
+
+function overRect(x, y, width, height) {
+    return mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height;
+}
+
+function drawLineWithTicks(x1, y1, x2, y2, totalSeconds, intervalSeconds, tickLen) {
+    // Draw the main line
+    line(x1, y1, x2, y2);
+
+    // Calculate the number of intervals
+    let numIntervals = totalSeconds / intervalSeconds;
+
+    // Draw the ticks and the text
+    for (let i = 0; i <= numIntervals; i++) {
+        let y = lerp(y1, y2, i / numIntervals);
+        stroke(0);
+        line(x1 - tickLen / 2, y, x1 + tickLen / 2, y); // Draw the tick mark
+
+        let totalSecondsAtTick = i * intervalSeconds;
+        let minutes = floor(totalSecondsAtTick / 60);
+        let seconds = totalSecondsAtTick % 60;
+        let timeText = nf(minutes, 2) + ":" + nf(seconds, 2);
+
+        noStroke();
+        fill(0);
+        textSize(12);
+        text(timeText, x1 - tickLen - textWidth(timeText), y); // Draw the text next to the tick mark
+    }
+}
+
+function drawVideoCursorLine() {
     // Draw video cursor line on Plot
     // Get mapped value in seconds to greatest video size, then map it to pixels on analyst timeline
     // let yPosSeconds = map(videoPlayer.getCurrentTime(), 0, videoPlayer.getDuration(), 0, analystLength);
+    stroke(150);
+    strokeWeight(2);
     let yPosPixels = map(videoPlayer.getCurrentTime(), 0, analystLength, yPosAnalystScale_1, yPosAnalystScale_2);
-    line(xPosVidScale_1, yPosPixels, xPosVidScale_2, yPosPixels);
+    drawDottedLine(xPosVidScale_1, yPosPixels, xPosVidScale_2, yPosPixels, 20);
+}
 
-    drawKeys();
+function drawDottedLine(x1, y1, x2, y2, spacing) {
+    let distance = dist(x1, y1, x2, y2);
+    let numDots = distance / spacing;
+
+    for (let i = 0; i < numDots; i++) {
+        let xStart = lerp(x1, x2, i / numDots);
+        let yStart = lerp(y1, y2, i / numDots);
+        let xEnd = lerp(x1, x2, (i + 0.5) / numDots);
+        let yEnd = lerp(y1, y2, (i + 0.5) / numDots);
+        line(xStart, yStart, xEnd, yEnd);
+    }
 }
 
 function setRectColor(method) {
