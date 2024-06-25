@@ -118,7 +118,7 @@ function drawVideoCursorLine() {
     // Draw video cursor line on Plot
     // Get mapped value in seconds to greatest video size, then map it to pixels on analyst timeline
     // let yPosSeconds = map(videoPlayer.getCurrentTime(), 0, videoPlayer.getDuration(), 0, analystLength);
-    stroke(150);
+    stroke(0, 255, 0);
     strokeWeight(2);
     let yPosPixels = map(videoPlayer.getCurrentTime(), 0, analystLength, yPosAnalystScale_1, yPosAnalystScale_2);
     drawDottedLine(xPosVidScale_1, yPosPixels, xPosVidScale_2, yPosPixels, 20);
