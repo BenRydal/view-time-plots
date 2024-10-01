@@ -48,34 +48,3 @@ function play() {
 function pause() {
     videoPlayer.pauseVideo();
 }
-
-// // Plays/pauses video and toggles videoIsPlaying
-// function playPauseMovie() {
-//     if (videoIsPlaying) {
-//         videoPlayer.pause();
-//         videoIsPlaying = false;
-//     } else {
-//         let mPos = map(mouseX, timelineStart, timelineEnd, currPixelTimeMin, currPixelTimeMax); // first map mouse to selected time values in GUI
-//         // must floor vPos to prevent double finite error
-//         let vPos = Math.floor(map(mPos, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())));
-//         print(vPos);
-//         videoPlayer.play();
-//         videoPlayer.seekTo(vPos);
-//         videoIsPlaying = true;
-//     }
-// }
-
-// // Updates time selected in video depending on mouse position or animation over timeline
-// function updateVideoScrubbing() {
-//     if (animation) {
-//         let startValue = map(currPixelTimeMin, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())); // remap starting point to seek for video
-//         let endValue = map(currPixelTimeMax, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())); // remap starting point to seek for video
-//         let vPos = Math.floor(map(bugTimePosForVideo, timelineStart, timelineEnd, startValue, endValue));
-//         videoPlayer.seekTo(vPos);
-//     } else if (overRect(timelineStart, 0, timelineEnd, timelineHeight)) {
-//         let mPos = map(mouseX, timelineStart, timelineEnd, currPixelTimeMin, currPixelTimeMax); // first map mouse to selected time values in GUI
-//         // must floor vPos to prevent double finite error
-//         let vPos = Math.floor(map(mPos, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())));
-//         videoPlayer.seekTo(vPos);
-//     }
-// }

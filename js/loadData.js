@@ -1,5 +1,5 @@
 function loadExampleDataSet() {
-    let exampleSet = document.getElementById("examples").value;
+    let exampleSet = document.getElementById("data-drop-down-menu").value;
     switch (exampleSet) {
         case "Example 1":
             loadExample(example_1);

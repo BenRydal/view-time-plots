@@ -1,7 +1,10 @@
-// SAMPLE DATA formatted as: { directory, data file, video platform, video params (see Video Player Interface) }
-// const example_1 = ['data/example-1/', 'units.csv', 'Youtube', {
-//     videoId: 'Iu0rxb-xkMk'
-// }];
+// Simple program for Rogers and Lauren to visualize data as time plots
+// Data is read in from a CSV file and displayed as rectangles on a canvas
+// Consider building scalable version with D3.js/React.js in future
+
+const methodColors = ["#756bb1", "#bcbddc", "#efedf5", "#000000", "#feedde", "#fdbe85", "#fd8d3c", "#d94701"];
+const methods = ["jrev", "frev", "srev", "still", "sfwd", "play", "ffwd", "jfwd"];
+
 const example_1 = ["data/example-1/units.csv", "HjBvwRSG_jY"]; // params are file path and YouTube id
 const example_2 = ["data/example-2/units.csv", "agUUzmtjsR0"]; // params are file path and YouTube id
 const example_3 = ["data/example-3/units.csv", "S8IJKA7t9cE"]; // params are file path and YouTube id
@@ -9,7 +12,6 @@ const example_4 = ["data/example-4/units.csv", "bOT48kMRL1g"]; // params are fil
 const example_5 = ["data/example-5/units.csv", "9Qa1T4pwUYo"]; // params are file path and YouTube id
 const example_6 = ["data/example-6/units.csv", "vhthoOHXMSI"]; // params are file path and YouTube id
 
-// TODO: remove?
 const vidLength = 119; // video length in seconds
 const analystLength = 3300; // max value in seconds across all analyst videos
 let dataValues = []; // list to hold all unit objects
@@ -48,8 +50,12 @@ function setup() {
     rectMode(CORNERS);
 }
 
+function windowResized() {
+    resizeCanvas(window.innerWidth, window.innerHeight);
+    setScales();
+}
+
 function draw() {
-    // background, scales
     background(255);
     noStroke();
     // Loop through table and draw rects
@@ -59,22 +65,9 @@ function draw() {
         if (view) drawNormalRects(u);
         else drawScaledRects(u, i);
     }
-
     drawVideoCursorLine();
-
     drawKeys();
-
-    strokeWeight(1);
-    stroke(0);
-    textSize(20);
-    line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_1); // Video scale/x-axis
-    //line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2); // Analyst scale/Y-axis
-
-    drawLineWithTicks(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2, analystLength, 300, 10); // Analyst scale/Y-axis
-
-    fill(0);
-    text("0", xPosVidScale_1 - 2 * textWidth("0"), 10); // Draw the text next to the tick mark
-    text("1:59", xPosVidScale_2, 10); // Draw the text next to the tick mark
+    drawScales();
 }
 
 function mousePressed() {
@@ -87,6 +80,20 @@ function mousePressed() {
 
 function overRect(x, y, width, height) {
     return mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height;
+}
+
+function drawScales() {
+    strokeWeight(1);
+    stroke(0);
+    textSize(20);
+    line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_1); // Video scale/x-axis
+    //line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2); // Analyst scale/Y-axis
+
+    drawLineWithTicks(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2, analystLength, 300, 10); // Analyst scale/Y-axis
+
+    fill(0);
+    text("0", xPosVidScale_1 - 2 * textWidth("0"), 10); // Draw the text next to the tick mark
+    text("1:59", xPosVidScale_2, 10); // Draw the text next to the tick mark
 }
 
 function drawLineWithTicks(x1, y1, x2, y2, totalSeconds, intervalSeconds, tickLen) {
@@ -151,8 +158,6 @@ function setRectColor(method) {
 
 function drawKeys() {
     textSize(20);
-    const methodColors = ["#756bb1", "#bcbddc", "#efedf5", "#000000", "#feedde", "#fdbe85", "#fd8d3c", "#d94701"];
-    const methods = ["jrev", "frev", "srev", "still", "sfwd", "play", "ffwd", "jfwd"];
     let xPosUpdate = 0;
     for (let i = 0; i < methods.length; i++) {
         noStroke();
