@@ -2,9 +2,6 @@
 // Data is read in from a CSV file and displayed as rectangles on a canvas
 // Consider building scalable version with D3.js/React.js in future
 
-const methodColors = ["#756bb1", "#bcbddc", "#efedf5", "#000000", "#feedde", "#fdbe85", "#fd8d3c", "#d94701"];
-const methods = ["jrev", "frev", "srev", "still", "sfwd", "play", "ffwd", "jfwd"];
-
 const example_1 = ["data/example-1/units.csv", "HjBvwRSG_jY"]; // params are file path and YouTube id
 const example_2 = ["data/example-2/units.csv", "agUUzmtjsR0"]; // params are file path and YouTube id
 const example_3 = ["data/example-3/units.csv", "S8IJKA7t9cE"]; // params are file path and YouTube id
@@ -46,7 +43,7 @@ let xPosVideo, yPosVideo, videoWidth, videoHeight;
 function setup() {
     canvas = createCanvas(window.innerWidth, window.innerHeight, P2D);
     setScales();
-    loadExample(example_5);
+    loadExample(example_1);
     rectMode(CORNERS);
 }
 
@@ -58,10 +55,9 @@ function windowResized() {
 function draw() {
     background(255);
     noStroke();
-    // Loop through table and draw rects
     for (let i = 0; i < dataValues.length; i++) {
         let u = dataValues[i]; // get unit
-        fill(setRectColor(u.playMethod));
+        fill(setColor(u.playMethod));
         if (view) drawNormalRects(u);
         else drawScaledRects(u, i);
     }
@@ -88,9 +84,7 @@ function drawScales() {
     textSize(20);
     line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_2, yPosAnalystScale_1); // Video scale/x-axis
     //line(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2); // Analyst scale/Y-axis
-
     drawLineWithTicks(xPosVidScale_1, yPosAnalystScale_1, xPosVidScale_1, yPosAnalystScale_2, analystLength, 300, 10); // Analyst scale/Y-axis
-
     fill(0);
     text("0", xPosVidScale_1 - 2 * textWidth("0"), 10); // Draw the text next to the tick mark
     text("1:59", xPosVidScale_2, 10); // Draw the text next to the tick mark
@@ -99,21 +93,17 @@ function drawScales() {
 function drawLineWithTicks(x1, y1, x2, y2, totalSeconds, intervalSeconds, tickLen) {
     // Draw the main line
     line(x1, y1, x2, y2);
-
     // Calculate the number of intervals
     let numIntervals = totalSeconds / intervalSeconds;
-
     // Draw the ticks and the text
     for (let i = 0; i <= numIntervals; i++) {
         let y = lerp(y1, y2, i / numIntervals);
         stroke(0);
         line(x1 - tickLen / 2, y, x1 + tickLen / 2, y); // Draw the tick mark
-
         let totalSecondsAtTick = i * intervalSeconds;
         let minutes = floor(totalSecondsAtTick / 60);
         let seconds = totalSecondsAtTick % 60;
         let timeText = nf(minutes, 2) + ":" + nf(seconds, 2);
-
         noStroke();
         fill(0);
         textSize(12);
@@ -144,7 +134,7 @@ function drawDottedLine(x1, y1, x2, y2, spacing) {
     }
 }
 
-function setRectColor(method) {
+function setColor(method) {
     if (method === "jrev") return "#756bb1"; // dark purple
     else if (method === "frev") return "#bcbddc"; // mid purple
     else if (method === "srev") return "#efedf5"; // light purple
@@ -157,16 +147,44 @@ function setRectColor(method) {
 }
 
 function drawKeys() {
-    textSize(20);
+    const desiredOrder = ["jrev", "frev", "srev", "still", "sfwd", "play", "ffwd", "jfwd"];
+    textSize(16);
     let xPosUpdate = 0;
+    let playMethodCounts = countPlayMethods(dataValues);
+    // Get the keys (play methods) from playMethodCounts and sort them according to the desired order
+    let methods = Object.keys(playMethodCounts).sort((a, b) => {
+        return desiredOrder.indexOf(a) - desiredOrder.indexOf(b);
+    });
+
     for (let i = 0; i < methods.length; i++) {
+        let method = methods[i];
+        let count = playMethodCounts[method]; // Get the count for the current method
         noStroke();
         fill(0);
-        text(methods[i], keyXPos + xPosUpdate, keyYPos);
-        fill(methodColors[i]);
+        text(`${method}: ${count}`, keyXPos + xPosUpdate, keyYPos);
+        fill(setColor(method));
         rect(keyXPos + xPosUpdate, 10 + keyYPos, xPosUpdate + keyXPos + 50, 10 + keyYPos + 50);
-        xPosUpdate += 2 * textWidth(methods[i]);
+        xPosUpdate += 2 * textWidth(method) + textWidth(count);
     }
+}
+
+function countPlayMethods(dataValues) {
+    let playMethodCounts = {}; // Object to hold the count of each playMethod
+
+    // Loop through the dataValues array
+    for (let i = 0; i < dataValues.length; i++) {
+        let playMethod = dataValues[i].playMethod; // Get the playMethod of the current Unit
+
+        // If the playMethod already exists in the object, increment the count
+        if (playMethodCounts[playMethod]) {
+            playMethodCounts[playMethod]++;
+        } else {
+            // If it doesn't exist yet, initialize it with 1
+            playMethodCounts[playMethod] = 1;
+        }
+    }
+
+    return playMethodCounts; // Return the object with counts of each playMethod
 }
 
 function drawNormalRects(unit) {
