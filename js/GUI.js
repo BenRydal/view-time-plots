@@ -1,15 +1,19 @@
 function keyPressed() {
-    if (key === 's' || key === 'S') view = !view;
+    if (key === "s" || key === "S") view = !view;
 }
 
 function setScales() {
-    xPosVidScale_1 = genSpacing;
-    xPosVidScale_2 = width/6;
-    yPosAnalystScale_1 = genSpacing;
-    yPosAnalystScale_2 = height - genSpacing;
+    const spacing = 50;
+    xPosVidScale_1 = spacing;
+    xPosVidScale_2 = width / 2 - spacing;
+    yPosAnalystScale_1 = 0;
+    yPosAnalystScale_2 = height - spacing / 2;
     analystScaleLength = yPosAnalystScale_2 - yPosAnalystScale_1;
-    xPosVideo = width/4;
-    yPosVideo = genSpacing;
-    videoWidth = width/2;
-    videoHeight = height/2;
+    xPosVideo = width / 2 + spacing;
+    yPosVideo = spacing;
+    videoWidth = width / 2 - spacing * 2;
+    videoHeight = height / 2 - spacing;
+
+    keyYPos = yPosVideo + videoHeight;
+    keyXPos = xPosVideo;
 }

@@ -1,68 +1,131 @@
-Units,Method,TStartVid,TEndVid,TStartAnalyst,TEndAnalyst
-Unit 1,0,0,119,42,42
-Unit 2,0,0,119,556,676
-Unit 3,0,0,6,737,742
-Unit 4,0,6,17,775,787
-Unit 5,0,17,33,795,812
-Unit 6,0,33,36,847,850
-Unit 7,0,36,50,906,921
-Unit 8,0,50,55,923,929
-Unit 9,0,55,60,959,964
-Unit 10,0,60,61,980,981
-Unit 11,0,61,65,984,989
-Unit 12,0,65,67,996,998
-Unit 13,0,67,71,1011,1015
-Unit 14,0,66,74,1040,1049
-Unit 15,0,74,77,1061,1064
-Unit 16,0,72,76,1064,1068
-Unit 17,0,76,79,1105,1109
-Unit 18,0,76,79,1112,1115
-Unit 19,0,70,79,1115,1124
-Unit 20,0,79,83,1174,1177
-Unit 21,2,71,66,1185,1186
-Unit 22,0,66,68,1188,1191
-Unit 23,0,68,69,1197,1198
-Unit 24,0,63,69,1205,1212
-Unit 25,0,69,82,1221,1234
-Unit 26,0,81,85,1262,1267
-Unit 27,0,85,86,1271,1272
-Unit 28,0,86,96,1274,1285
-Unit 29,0,96,104,1293,1301
-Unit 30,0,104,118,1344,1358
-Unit 31,0,118,119,1419,1420
-Unit 32,2,119,0,1424,1425
-Unit 33,0,0,6,1496,1502
-Unit 34,0,6,8,1511,1513
-Unit 35,2,8,0,1521,1522
-Unit 36,0,0,14,1523,1536
-Unit 37,2,14,0,1537,1538
-Unit 38,0,0,8,1539,1548
-Unit 39,0,8,11,1580,1583
-Unit 40,0,11,23,1593,1606
-Unit 41,0,23,43,1624,1644
-Unit 42,0,36,39,1649,1652
-Unit 43,0,33,57,1654,1678
-Unit 44,0,57,78,1755,1776
-Unit 45,0,78,91,1787,1801
-Unit 46,0,91,94,1806,1809
-Unit 47,0,66,74,1895,1904
-Unit 48,0,74,108,1905,1939
-Unit 49,0,108,115,1949,1956
-Unit 50,0,115,119,1965,1969
-Unit 51,0,96,119,1971,1992
-Unit 52,2,119,0,2089,2090
-Unit 53,0,0,45,2091,2137
-Unit 54,0,34,48,2139,2153
-Unit 55,0,48,67,2176,2195
-Unit 56,0,50,73,2205,2228
-Unit 57,0,66,106,2257,2298
-Unit 58,0,106,108,2302,2304
-Unit 59,2,108,0,2304,2305
-Unit 60,0,0,10,2344,2354
-Unit 61,0,10,21,2356,2367
-Unit 62,0,21,33,2368,2380
-Unit 63,0,33,66,2393,2426
-Unit 64,2,39,36,2428,2429
-Unit 65,0,36,76,2430,2470
-Unit 66,0,76,107,2504,2536
-Unit 67,0,107,119,2547,2559
+﻿Analysts,Units,Method,TStartVid,TEndVid,TStartAnalyst,TEndAnalyst
+Shirin Vossoughi,Unit 1,PLAY,0:00:00,0:01:59,0:00:42,0:02:42
+Shirin Vossoughi,Unit 2,STILL,0:01:59,0:01:59,0:02:42,0:09:16
+Shirin Vossoughi,Unit 3,PLAY,0:00:00,0:01:59,0:09:16,0:11:16
+Shirin Vossoughi,Unit 4,STILL,0:01:59,0:01:59,0:11:16,0:12:12
+Shirin Vossoughi,Unit 5,JREV,0:01:59,0:00:00,0:12:12,0:12:16
+Shirin Vossoughi,Unit 6,PLAY,0:00:00,0:00:05,0:12:16,0:12:22
+Shirin Vossoughi,Unit 7,STILL,0:00:05,0:00:05,0:12:22,0:12:55
+Shirin Vossoughi,Unit 8,PLAY,0:00:05,0:00:17,0:12:55,0:13:07
+Shirin Vossoughi,Unit 9,STILL,0:00:17,0:00:17,0:13:07,0:13:16
+Shirin Vossoughi,Unit 10,PLAY,0:00:17,0:00:33,0:13:16,0:13:32
+Shirin Vossoughi,Unit 11,STILL,0:00:33,0:00:33,0:13:32,0:14:07
+Shirin Vossoughi,Unit 12,PLAY,0:00:33,0:00:36,0:14:07,0:14:10
+Shirin Vossoughi,Unit 13,STILL,0:00:36,0:00:36,0:14:10,0:15:06
+Shirin Vossoughi,Unit 14,PLAY,0:00:36,0:00:50,0:15:06,0:15:20
+Shirin Vossoughi,Unit 15,STILL,0:00:50,0:00:50,0:15:20,0:15:23
+Shirin Vossoughi,Unit 16,PLAY,0:00:50,0:00:55,0:15:23,0:15:28
+Shirin Vossoughi,Unit 17,STILL,0:00:55,0:00:55,0:15:28,0:15:59
+Shirin Vossoughi,Unit 18,PLAY,0:00:55,0:01:00,0:15:59,0:16:03
+Shirin Vossoughi,Unit 19,STILL,0:01:00,0:01:00,0:16:03,0:16:20
+Shirin Vossoughi,Unit 20,PLAY,0:01:00,0:01:01,0:16:20,0:16:21
+Shirin Vossoughi,Unit 21,STILL,0:01:01,0:01:01,0:16:21,0:16:24
+Shirin Vossoughi,Unit 22,PLAY,0:01:01,0:01:05,0:16:24,0:16:29
+Shirin Vossoughi,Unit 23,STILL,0:01:05,0:01:05,0:16:29,0:16:36
+Shirin Vossoughi,Unit 24,PLAY,0:01:05,0:01:07,0:16:36,0:16:38
+Shirin Vossoughi,Unit 25,STILL,0:01:07,0:01:07,0:16:38,0:16:50
+Shirin Vossoughi,Unit 26,PLAY,0:01:07,0:01:11,0:16:50,0:16:54
+Shirin Vossoughi,Unit 27,STILL,0:01:11,0:01:11,0:16:54,0:17:19
+Shirin Vossoughi,Unit 28,JREV,0:01:11,0:01:06,0:17:19,0:17:20
+Shirin Vossoughi,Unit 29,PLAY,0:01:06,0:01:14,0:17:20,0:17:28
+Shirin Vossoughi,Unit 30,STILL,0:01:14,0:01:14,0:17:28,0:17:41
+Shirin Vossoughi,Unit 31,PLAY,0:01:14,0:01:17,0:17:41,0:17:44
+Shirin Vossoughi,Unit 32,JREV,0:01:17,0:01:12,0:17:44,0:17:45
+Shirin Vossoughi,Unit 33,PLAY,0:01:12,0:01:16,0:17:45,0:17:48
+Shirin Vossoughi,Unit 34,STILL,0:01:16,0:01:16,0:17:48,0:18:25
+Shirin Vossoughi,Unit 35,PLAY,0:01:16,0:01:19,0:18:25,0:18:29
+Shirin Vossoughi,Unit 36,STILL,0:01:19,0:01:19,0:18:29,0:18:31
+Shirin Vossoughi,Unit 37,JREV,0:01:19,0:01:16,0:18:31,0:18:32
+Shirin Vossoughi,Unit 38,PLAY,0:01:16,0:01:19,0:18:32,0:18:34
+Shirin Vossoughi,Unit 39,JREV,0:01:19,0:01:10,0:18:34,0:18:35
+Shirin Vossoughi,Unit 40,PLAY,0:01:10,0:01:19,0:18:35,0:18:45
+Shirin Vossoughi,Unit 41,STILL,0:01:19,0:01:19,0:18:45,0:19:33
+Shirin Vossoughi,Unit 42,PLAY,0:01:19,0:01:23,0:19:33,0:19:37
+Shirin Vossoughi,Unit 43,STILL,0:01:23,0:01:23,0:19:37,0:19:45
+Shirin Vossoughi,Unit 44,JREV,0:01:23,0:01:05,0:19:45,0:19:47
+Shirin Vossoughi,Unit 45,PLAY,0:01:05,0:01:08,0:19:47,0:19:50
+Shirin Vossoughi,Unit 46,STILL,0:01:08,0:01:08,0:19:50,0:19:57
+Shirin Vossoughi,Unit 47,PLAY,0:01:08,0:01:09,0:19:57,0:19:58
+Shirin Vossoughi,Unit 48,STILL,0:01:09,0:01:09,0:19:58,0:20:03
+Shirin Vossoughi,Unit 49,JREV,0:01:09,0:01:03,0:20:03,0:20:04
+Shirin Vossoughi,Unit 50,PLAY,0:01:03,0:01:09,0:20:04,0:20:10
+Shirin Vossoughi,Unit 51,STILL,0:01:09,0:01:09,0:20:10,0:20:21
+Shirin Vossoughi,Unit 52,PLAY,0:01:09,0:01:22,0:20:21,0:20:34
+Shirin Vossoughi,Unit 53,STILL,0:01:22,0:01:22,0:20:34,0:21:02
+Shirin Vossoughi,Unit 54,JREV,0:01:22,0:01:21,0:21:02,0:21:03
+Shirin Vossoughi,Unit 55,PLAY,0:01:21,0:01:25,0:21:03,0:21:07
+Shirin Vossoughi,Unit 56,STILL,0:01:25,0:01:25,0:21:07,0:21:15
+Shirin Vossoughi,Unit 57,PLAY,0:01:25,0:01:36,0:21:15,0:21:26
+Shirin Vossoughi,Unit 58,STILL,0:01:36,0:01:36,0:21:26,0:21:33
+Shirin Vossoughi,Unit 59,PLAY,0:01:36,0:01:44,0:21:33,0:21:41
+Shirin Vossoughi,Unit 60,STILL,0:01:44,0:01:44,0:21:41,0:22:24
+Shirin Vossoughi,Unit 61,PLAY,0:01:44,0:01:58,0:22:24,0:22:38
+Shirin Vossoughi,Unit 62,STILL,0:01:58,0:01:58,0:22:38,0:23:40
+Shirin Vossoughi,Unit 63,PLAY,0:01:58,0:01:59,0:23:40,0:23:41
+Shirin Vossoughi,Unit 64,FREV,0:01:59,0:00:00,0:23:41,0:23:46
+Shirin Vossoughi,Unit 65,STILL,0:00:00,0:00:00,0:23:46,0:24:56
+Shirin Vossoughi,Unit 66,PLAY,0:00:00,0:00:06,0:24:56,0:25:03
+Shirin Vossoughi,Unit 67,STILL,0:00:06,0:00:06,0:25:03,0:25:11
+Shirin Vossoughi,Unit 68,PLAY,0:00:06,0:00:09,0:25:11,0:25:14
+Shirin Vossoughi,Unit 69,STILL,0:00:09,0:00:09,0:25:14,0:25:21
+Shirin Vossoughi,Unit 70,FREV,0:00:09,0:00:00,0:25:21,0:25:23
+Shirin Vossoughi,Unit 71,PLAY,0:00:00,0:00:13,0:25:23,0:25:37
+Shirin Vossoughi,Unit 72,FREV,0:00:13,0:00:00,0:25:37,0:25:40
+Shirin Vossoughi,Unit 73,PLAY,0:00:00,0:00:08,0:25:40,0:25:48
+Shirin Vossoughi,Unit 74,STILL,0:00:08,0:00:08,0:25:48,0:26:20
+Shirin Vossoughi,Unit 75,PLAY,0:00:08,0:00:11,0:26:20,0:26:23
+Shirin Vossoughi,Unit 76,STILL,0:00:11,0:00:11,0:26:23,0:26:33
+Shirin Vossoughi,Unit 77,PLAY,0:00:11,0:00:24,0:26:33,0:26:46
+Shirin Vossoughi,Unit 78,STILL,0:00:24,0:00:24,0:26:46,0:27:04
+Shirin Vossoughi,Unit 79,PLAY,0:00:24,0:00:43,0:27:04,0:27:23
+Shirin Vossoughi,Unit 80,STILL,0:00:43,0:00:43,0:27:23,0:27:28
+Shirin Vossoughi,Unit 81,JREV,0:00:43,0:00:36,0:27:28,0:27:29
+Shirin Vossoughi,Unit 82,PLAY,0:00:36,0:00:39,0:27:29,0:27:32
+Shirin Vossoughi,Unit 83,JREV,0:00:39,0:00:33,0:27:32,0:27:33
+Shirin Vossoughi,Unit 84,PLAY,0:00:33,0:00:57,0:27:33,0:27:57
+Shirin Vossoughi,Unit 85,STILL,0:00:57,0:00:57,0:27:57,0:29:15
+Shirin Vossoughi,Unit 86,PLAY,0:00:57,0:01:18,0:29:15,0:29:36
+Shirin Vossoughi,Unit 87,STILL,0:01:18,0:01:18,0:29:36,0:29:48
+Shirin Vossoughi,Unit 88,PLAY,0:01:18,0:01:31,0:29:48,0:30:01
+Shirin Vossoughi,Unit 89,STILL,0:01:31,0:01:31,0:30:01,0:30:06
+Shirin Vossoughi,Unit 90,PLAY,0:01:31,0:01:34,0:30:06,0:30:09
+Shirin Vossoughi,Unit 91,STILL,0:01:34,0:01:34,0:30:09,0:31:34
+Shirin Vossoughi,Unit 92,JREV,0:01:34,0:01:06,0:31:34,0:31:35
+Shirin Vossoughi,Unit 93,PLAY,0:01:06,0:01:48,0:31:35,0:32:19
+Shirin Vossoughi,Unit 94,STILL,0:01:48,0:01:48,0:32:19,0:32:28
+Shirin Vossoughi,Unit 95,PLAY,0:01:48,0:01:55,0:32:28,0:32:36
+Shirin Vossoughi,Unit 96,STILL,0:01:55,0:01:55,0:32:36,0:32:46
+Shirin Vossoughi,Unit 97,PLAY,0:01:55,0:01:59,0:32:46,0:32:50
+Shirin Vossoughi,Unit 98,JREV,0:01:59,0:01:38,0:32:50,0:32:51
+Shirin Vossoughi,Unit 99,PLAY,0:01:38,0:01:59,0:32:51,0:33:12
+Shirin Vossoughi,Unit 100,STILL,0:01:59,0:01:59,0:33:12,0:34:49
+Shirin Vossoughi,Unit 101,FREV,0:01:59,0:00:00,0:34:49,0:34:50
+Shirin Vossoughi,Unit 102,PLAY,0:00:00,0:00:45,0:34:50,0:35:35
+Shirin Vossoughi,Unit 103,JREV,0:00:45,0:00:34,0:35:35,0:35:38
+Shirin Vossoughi,Unit 104,PLAY,0:00:34,0:00:48,0:35:38,0:35:53
+Shirin Vossoughi,Unit 105,STILL,0:00:48,0:00:48,0:35:53,0:36:16
+Shirin Vossoughi,Unit 106,PLAY,0:00:48,0:01:07,0:36:16,0:36:36
+Shirin Vossoughi,Unit 107,STILL,0:01:07,0:01:07,0:36:36,0:36:44
+Shirin Vossoughi,Unit 108,JREV,0:01:07,0:00:50,0:36:44,0:36:45
+Shirin Vossoughi,Unit 109,PLAY,0:00:50,0:01:13,0:36:45,0:37:08
+Shirin Vossoughi,Unit 110,STILL,0:01:13,0:01:13,0:37:08,0:37:36
+Shirin Vossoughi,Unit 111,JREV,0:01:13,0:01:06,0:37:36,0:37:37
+Shirin Vossoughi,Unit 112,PLAY,0:01:06,0:01:46,0:37:37,0:38:18
+Shirin Vossoughi,Unit 113,STILL,0:01:46,0:01:46,0:38:18,0:38:21
+Shirin Vossoughi,Unit 114,PLAY,0:01:46,0:01:48,0:38:21,0:38:23
+Shirin Vossoughi,Unit 115,FREV,0:01:48,0:00:00,0:38:23,0:38:24
+Shirin Vossoughi,Unit 116,STILL,0:00:00,0:00:00,0:38:24,0:39:04
+Shirin Vossoughi,Unit 117,PLAY,0:00:00,0:00:10,0:39:04,0:39:14
+Shirin Vossoughi,Unit 118,STILL,0:00:10,0:00:10,0:39:14,0:39:15
+Shirin Vossoughi,Unit 119,PLAY,0:00:10,0:00:21,0:39:15,0:39:26
+Shirin Vossoughi,Unit 120,STILL,0:00:21,0:00:21,0:39:26,0:39:27
+Shirin Vossoughi,Unit 121,PLAY,0:00:21,0:00:33,0:39:27,0:39:41
+Shirin Vossoughi,Unit 122,STILL,0:00:33,0:00:33,0:39:41,0:39:53
+Shirin Vossoughi,Unit 123,PLAY,0:00:33,0:01:05,0:39:53,0:40:26
+Shirin Vossoughi,Unit 124,JREV,0:01:05,0:00:39,0:40:26,0:40:27
+Shirin Vossoughi,Unit 125,FREV,0:00:39,0:00:36,0:40:27,0:40:29
+Shirin Vossoughi,Unit 126,PLAY,0:00:36,0:01:16,0:40:29,0:41:11
+Shirin Vossoughi,Unit 127,STILL,0:01:16,0:01:16,0:41:11,0:41:44
+Shirin Vossoughi,Unit 128,PLAY,0:01:16,0:01:47,0:41:44,0:42:16
+Shirin Vossoughi,Unit 129,STILL,0:01:47,0:01:47,0:42:16,0:42:27
+Shirin Vossoughi,Unit 130,PLAY,0:01:47,0:01:58,0:42:27,0:42:38

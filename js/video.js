@@ -6,11 +6,11 @@ function processYTVideo(id) {
         movie.remove();
     }
     movie = createDiv(); // create the div that will hold the video if other player
-    movie.id('moviePlayer');
+    movie.id("moviePlayer");
     // movie.hide();
-    setupMovie('moviePlayer', id); // set up the video player
-    let video = select('#moviePlayer').position(xPosVideo, yPosVideo); // position video
-    let iFrameID = document.getElementById('moviePlayer');
+    setupMovie("moviePlayer", id); // set up the video player
+    let video = select("#moviePlayer").position(xPosVideo, yPosVideo); // position video
+    let iFrameID = document.getElementById("moviePlayer");
     iFrameID.width = videoWidth;
     iFrameID.height = videoHeight;
 }
@@ -25,8 +25,8 @@ function setupMovie(movieDiv, id) {
             disablekb: 1, // disables keyboard controls on the video
         },
         events: {
-            'onReady': onPlayerReady,
-        }
+            onReady: onPlayerReady,
+        },
     });
 }
 
@@ -37,34 +37,14 @@ function onPlayerReady(event) {
     console.log("YT player ready: ");
 }
 
+function seekTo(time) {
+    videoPlayer.seekTo(time, true);
+}
 
-// // Plays/pauses video and toggles videoIsPlaying
-// function playPauseMovie() {
-//     if (videoIsPlaying) {
-//         videoPlayer.pause(); 
-//         videoIsPlaying = false;
-//     } else {
-//         let mPos = map(mouseX, timelineStart, timelineEnd, currPixelTimeMin, currPixelTimeMax); // first map mouse to selected time values in GUI
-//         // must floor vPos to prevent double finite error
-//         let vPos = Math.floor(map(mPos, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())));
-//         print(vPos);
-//         videoPlayer.play();
-//         videoPlayer.seekTo(vPos);    
-//         videoIsPlaying = true;
-//     }
-// }
+function play() {
+    videoPlayer.playVideo();
+}
 
-// // Updates time selected in video depending on mouse position or animation over timeline
-// function updateVideoScrubbing() {
-//     if (animation) {
-//         let startValue = map(currPixelTimeMin, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())); // remap starting point to seek for video
-//         let endValue = map(currPixelTimeMax, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())); // remap starting point to seek for video
-//         let vPos = Math.floor(map(bugTimePosForVideo, timelineStart, timelineEnd, startValue, endValue));
-//         videoPlayer.seekTo(vPos);
-//     } else if (overRect(timelineStart, 0, timelineEnd, timelineHeight)) {
-//         let mPos = map(mouseX, timelineStart, timelineEnd, currPixelTimeMin, currPixelTimeMax); // first map mouse to selected time values in GUI
-//         // must floor vPos to prevent double finite error
-//         let vPos = Math.floor(map(mPos, timelineStart, timelineEnd, 0, Math.floor(videoPlayer.getVideoDuration())));
-//         videoPlayer.seekTo(vPos);
-//     }
-// }
+function pause() {
+    videoPlayer.pauseVideo();
+}
