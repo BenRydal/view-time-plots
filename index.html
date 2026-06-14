@@ -1,30 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <title>Time Plots</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
-    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
-    <script src="js/main.js"></script>
-    <script src="js/loadData.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/GUI.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/input.css" />
-</head>
-
-<body>
-    <div class="main-menu-bar">
-        <form action="/action_page.php">
-            <select id="data-drop-down-menu" name="drop-down-menu" onchange="loadExampleDataSet()">
-                <option value="Example 1" selected>Case 1: Shirin Vossoughi</option>
-                <option value="Example 2">Case 2: Rogers/Ben</option>
-                <option value="Example 3">Case 3: Jurgen Streeck</option>
-                <option value="Example 4">Case 4: Barbara/Andy</option>
-                <option value="Example 5">Case 5: Miriam Sherin</option>
-                <option value="Example 6">Case 6: Fred Erickson</option>
-            </select>
-        </form>
-    </div>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lhll-plots</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
