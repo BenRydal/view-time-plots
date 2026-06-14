@@ -84,7 +84,7 @@
 
 <div class="navbar bg-base-200 border-b border-base-300 px-4 gap-2 shrink-0">
   <div class="navbar-start">
-    <span class="font-bold text-lg tracking-tight text-base-content">LHLL Plots</span>
+    <span class="font-bold text-lg tracking-tight text-base-content">View Time Plots</span>
   </div>
 
   <div class="navbar-end gap-2">

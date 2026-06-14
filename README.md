@@ -1,4 +1,4 @@
-# LHLL Plots
+# View Time Plots
 
 A static web application that visualizes video analysis data as time plots. Each "case" represents an analyst's viewing session of a video, rendered alongside the embedded video so you can correlate analyst behavior (play, pause, rewind, fast-forward) with what was on screen.
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Then open the URL Vite prints (usually `http://localhost:5173/LHLL-Plots/`).
+Then open the URL Vite prints (usually `http://localhost:5173/view-time-plots/`).
 
 ## Build
 
@@ -24,13 +24,13 @@ The production build is emitted to `dist/`.
 
 ## Deployment
 
-This repo deploys to GitHub Pages automatically on push to `main` via `.github/workflows/deploy.yml`. The live site is at `https://<owner>.github.io/LHLL-Plots/`.
+This repo deploys to GitHub Pages automatically on push to `main` via `.github/workflows/deploy.yml`. The live site is at `https://<owner>.github.io/view-time-plots/`.
 
 To deploy:
 1. In the repo's GitHub settings → Pages, set **Source** to **GitHub Actions**.
 2. Push to `main`. The workflow builds and publishes `dist/`.
 
-The Vite `base` is set to `/LHLL-Plots/` in `vite.config.ts` — if you rename the repo, update that.
+The Vite `base` is set to `/view-time-plots/` in `vite.config.ts` — if you rename the repo, update that.
 
 ## Data
 
