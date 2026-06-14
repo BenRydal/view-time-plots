@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "lhll";
+  default: true;
+  color-scheme: light;
+
+  /* Steel blue primary — professional, data-viz feel */
+  --color-primary: #4f7df5;
+  --color-primary-content: #ffffff;
+
+  /* Purple secondary — ties to rewind colors in the plot */
+  --color-secondary: #756bb1;
+  --color-secondary-content: #ffffff;
+
+  /* Orange accent — ties to forward colors in the plot */
+  --color-accent: #fd8d3c;
+  --color-accent-content: #ffffff;
+
+  /* Dark charcoal neutral */
+  --color-neutral: #2a2e35;
+  --color-neutral-content: #f8f9fb;
+
+  /* Cool off-white base */
+  --color-base-100: #f8f9fb;
+  --color-base-200: #eef0f4;
+  --color-base-300: #d1d5db;
+  --color-base-content: #1f2937;
+
+  --color-info: #3b82f6;
+  --color-info-content: #ffffff;
+  --color-success: #22c55e;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #ffffff;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 1rem;
+  --radius-field: 0.375rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+}
