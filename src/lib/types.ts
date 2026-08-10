@@ -19,3 +19,12 @@ export interface VideoSource {
 }
 
 export type ViewMode = 'normal' | 'scaled';
+
+/** Coarse direction of travel through the video, used by the histogram. */
+export type MethodGroup = 'rev' | 'still' | 'fwd';
+
+/** What a unit contributes to a histogram bin. */
+export type HistWeight = 'analyst' | 'count' | 'video';
+
+/** Whether the histogram stacks 3 direction groups or all 8 methods. */
+export type HistGrouping = 'grouped' | 'detailed';
