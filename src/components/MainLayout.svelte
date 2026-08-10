@@ -2,17 +2,20 @@
   import TimePlot from './plot/TimePlot.svelte';
   import VideoPanel from './video/VideoPanel.svelte';
   import Legend from './plot/Legend.svelte';
-  import { viewMode, units } from '../lib/stores';
+  import { viewMode, units, showHistogram } from '../lib/stores';
 
   let containerWidth = $state(0);
   let splitRatio = $state(0.55);
   let dragging = $state(false);
 
   function handleKeydown(e: KeyboardEvent) {
-    if (e.key === 's' || e.key === 'S') {
-      const tag = (e.target as HTMLElement)?.tagName;
-      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+    const tag = (e.target as HTMLElement)?.tagName;
+    const typing = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+    if (!typing && (e.key === 's' || e.key === 'S')) {
       viewMode.update((v) => (v === 'normal' ? 'scaled' : 'normal'));
+    }
+    if (!typing && (e.key === 'h' || e.key === 'H')) {
+      showHistogram.update((v) => !v);
     }
     // Arrow keys to resize split pane when divider is focused
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {

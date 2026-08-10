@@ -1,4 +1,4 @@
-import type { PlayMethod } from './types';
+import type { PlayMethod, MethodGroup } from './types';
 
 export const COLOR_MAP: Record<PlayMethod, string> = {
   jrev: '#756bb1',   // dark purple
@@ -9,6 +9,28 @@ export const COLOR_MAP: Record<PlayMethod, string> = {
   play: '#fdbe85',   // light orange
   ffwd: '#fd8d3c',   // mid orange
   jfwd: '#d94701',   // dark orange
+};
+
+// Histogram fills. COLOR_MAP is tuned for hairline rects in the scatter, where the
+// near-white steps (srev #efedf5, sfwd #feedde) are fine; as area fills they sit at
+// ~1.1:1 against the plot background and disappear. These keep the same diverging
+// meaning — purple = reverse, orange = forward, neutral = still — re-stepped so every
+// slot stays legible, with a true neutral rather than black at the midpoint.
+export const HIST_GROUP_COLOR: Record<MethodGroup, string> = {
+  rev: '#5b3d9e',
+  still: '#8f8f8f',
+  fwd: '#e6550d',
+};
+
+export const HIST_METHOD_COLOR: Record<PlayMethod, string> = {
+  jrev: '#5b3d9e',
+  frev: '#8a72c4',
+  srev: '#b9aede',
+  still: '#8f8f8f',
+  sfwd: '#fcc08a',
+  play: '#f2903f',
+  ffwd: '#e6550d',
+  jfwd: '#9c3606',
 };
 
 export interface ExampleDataset {

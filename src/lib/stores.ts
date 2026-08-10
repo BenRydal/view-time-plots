@@ -1,5 +1,12 @@
 import { writable, derived } from 'svelte/store';
-import type { Unit, VideoSource, ViewMode, PlayMethod } from './types';
+import type {
+  Unit,
+  VideoSource,
+  ViewMode,
+  PlayMethod,
+  HistWeight,
+  HistGrouping,
+} from './types';
 import { VID_LENGTH, ANALYST_LENGTH } from './constants';
 
 export const ALL_METHODS: PlayMethod[] = ['jrev', 'frev', 'srev', 'still', 'sfwd', 'play', 'ffwd', 'jfwd'];
@@ -16,3 +23,10 @@ export const analystLength = derived(units, ($units) => {
 });
 
 export const seekRequest = writable<number | null>(null);
+
+// Video-time histogram
+export const showHistogram = writable<boolean>(true);
+export const binWidth = writable<number>(5);
+export const histWeight = writable<HistWeight>('analyst');
+export const histGrouping = writable<HistGrouping>('grouped');
+export const histNormalize = writable<boolean>(false);
